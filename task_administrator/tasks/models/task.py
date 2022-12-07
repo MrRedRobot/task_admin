@@ -15,7 +15,7 @@ PRIORITY_CHOICES = [
 ]
 
 class Task(models.Model):
-    name = models.CharField(max_length=100, null=False)
+    name = models.CharField(max_length=100, null=False, unique = True)
     description = models.TextField(null=False)
     state = models.CharField(max_length=10, choices=STATE_CHOICES, null=False)
     priority = models.CharField(max_length=5, choices=PRIORITY_CHOICES, null=False)
