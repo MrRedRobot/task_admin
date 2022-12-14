@@ -25,5 +25,6 @@ class TaskListSerializer(serializers.ModelSerializer):
             'descripcion':instance['description'],
             'estado': instance['state'],
             'prioridad': instance['priority'],
-            'fecha de entrega':instance['delivery_date']
+            'fecha de entrega':instance['delivery_date'],
+            'comentario': instance.comentary.comentary_text if instance.comentary is not Null else ''
         }

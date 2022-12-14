@@ -19,4 +19,5 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('apitasks/', include('tasks.urls')),
+    path('comentary/', include('tasks.routers')),
 ]
