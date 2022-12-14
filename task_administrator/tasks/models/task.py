@@ -1,4 +1,5 @@
 from django.db import models
+from tasks.models.comentary import Comentary
 
 STATE_CHOICES = [
     ('BACKLOG', 'Backlog'),
@@ -20,6 +21,7 @@ class Task(models.Model):
     state = models.CharField(max_length=10, choices=STATE_CHOICES, null=False)
     priority = models.CharField(max_length=5, choices=PRIORITY_CHOICES, null=False)
     delivery_date = models.DateField(blank=True, null=False)
+    comentary = models.ForeignKey(Comentary, on_delete=models.CASCADE, null=True, verbose_name="Comentario")
 
     def __str__(self):
         return self.name

@@ -1,14 +1,18 @@
 import datetime
 
-from django.utils import  timezone
 from rest_framework import serializers
 from tasks.models.task import Task
+from tasks.serializers.comentary_serializer import ComentarySerializer
 
 class TaskSerializer(serializers.ModelSerializer):
+    #comentary= ComentarySerializer()
+    comentary= serializers.StringRelatedField()
+
     class Meta:
         model = Task
-        fields = ('id','name','description','state', 'priority', 'delivery_date')
-        read_only_fields = ('id',)
+        fields = ('id','name','description','state', 'priority', 'delivery_date', 'comentary',)
+        #read_only_fields = ('id',)
+
 
 class TaskListSerializer(serializers.ModelSerializer):
     class Meta:
